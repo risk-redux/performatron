@@ -1,0 +1,16 @@
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ksat_data.each do |ksat| %>
+    <tr>
+      <th scope="row"><%= ksat.acronym %></th>
+      <td><%= ksat.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

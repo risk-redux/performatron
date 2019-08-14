@@ -1,0 +1,12 @@
+<%- view_title "NICE Category | #{@nice_category.acronym}" %>
+
+<% content_for :main do %>
+<h1><%= @nice_category.acronym %> <%= @nice_category.name %></h1>
+<blockquote class="blockquote">
+  <p class="mb-0"><%= @nice_category.description %></p>
+</blockquote>
+
+<h2>Related Specialty Areas <span class="badge badge-pill badge-secondary"><%= @nice_category.nice_areas.count%></span></h2>
+<%= nice_areas_table(@nice_category.nice_areas) %>
+
+<% end %>

@@ -1,0 +1,48 @@
+<%- view_title "NICE Work Role - #{@nice_work_role.acronym}" %>
+
+<% content_for :main do %>
+<h1>
+  <%= @nice_work_role.acronym %>
+  <small class="text-muted"><%= @nice_work_role.name %></small>
+</h1>
+<p><%= @nice_work_role.nice_area.nice_category.description %></p>
+<p><%= @nice_work_role.nice_area.description %></p>
+<p><%= @nice_work_role.description %></p>
+
+<h2>
+  <a data-toggle="collapse" href="#nice_knowledges_table" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fa fa-list"></i>
+  </a>
+  Knowledges
+  <span class="badge badge-pill badge-secondary"><%= @nice_work_role.nice_knowledges.count%></span>
+</h2>
+<%= nice_knowledges_table(@nice_work_role.nice_knowledges) %>
+
+<h2>
+  <a data-toggle="collapse" href="#nice_skills_table" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fa fa-list"></i>
+  </a>
+  Skills
+  <span class="badge badge-pill badge-secondary"><%= @nice_work_role.nice_skills.count%></span>
+</h2>
+<%= nice_skills_table(@nice_work_role.nice_skills) %>
+
+<h2>
+  <a data-toggle="collapse" href="#nice_abilities_table" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fa fa-list"></i>
+  </a>
+  Abilities
+  <span class="badge badge-pill badge-secondary"><%= @nice_work_role.nice_abilities.count%></span>
+</h2>
+<%= nice_abilities_table(@nice_work_role.nice_abilities) %>
+
+<h2>
+  <a data-toggle="collapse" href="#nice_tasks_table" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fa fa-list"></i>
+  </a>
+  Tasks
+  <span class="badge badge-pill badge-secondary"><%= @nice_work_role.nice_tasks.count%></span>
+</h2>
+<%= nice_tasks_table(@nice_work_role.nice_tasks) %>
+
+<% end %>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render partial: "shared/head" %>
+
+  <body>
+    <%= render partial: "shared/nav" %>
+
+    <main role="main" class="container">
+      <!-- Begin page content -->
+      <%= yield :main %>
+    </main>
+
+    <%= render partial: "shared/foot" %>
+
+    <%= render partial: "shared/scripts" %>
+  </body>
+</html>

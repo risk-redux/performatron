@@ -1,0 +1,8 @@
+<%- view_title "NICE Tasks" %>
+
+<% content_for :main do %>
+<h1>NICE Tasks <span class="badge badge-pill badge-secondary"><%= @tasks.count%></span></h1>
+
+<%= nice_tasks_table(@tasks) %>
+
+<% end %>

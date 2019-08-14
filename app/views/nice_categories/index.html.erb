@@ -1,0 +1,12 @@
+<%- view_title "NICE Categories" %>
+
+<% content_for :main do %>
+<h1>NICE Categories <span class="badge badge-pill badge-secondary"><%= @nice_categories.count%></span></h1>
+<blockquote class="blockquote">
+  <p class="mb-0">Categories provide the overarching organizational structure of the NICE Framework. There are seven Categories and all are composed of Specialty Areas and work roles. This organizational structure is based on extensive job analyses, which group together work and workers that share common major functions, regardless of job titles or other occupational terms.</p>
+  <footer class="blockquote-footer"><cite title="NIST SP 800-181">NIST SP 800-181</cite></footer>
+</blockquote>
+
+<%= nice_categories_table(@nice_categories) %>
+
+<% end %>

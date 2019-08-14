@@ -1,0 +1,11 @@
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><%= type.capitalize %></div>
+  <div class="card-body text-primary">
+    <h5 class="card-title"><%= ksat_data.count %></h5>
+    <p class="card-text">
+      <% ksat_data.each do |ksat| %>
+        <%= ksat.acronym %>
+      <% end %>
+    </p>
+  </div>
+</div>

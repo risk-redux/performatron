@@ -1,0 +1,10 @@
+<%- view_title "NICE Skill - #{@skill.acronym}" %>
+
+<% content_for :main do %>
+<h1><%= @skill.acronym %></h1>
+<p class="lead"><%= @skill.description %></p>
+
+<h2>Related NICE Work Roles <span class="badge badge-pill badge-secondary"><%= @skill.nice_work_roles.count%></span></h2>
+<%= nice_work_roles_table(@skill.nice_work_roles) %>
+
+<% end %>

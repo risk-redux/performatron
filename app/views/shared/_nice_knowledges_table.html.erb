@@ -1,0 +1,32 @@
+<% unless knowledges.nil? %>
+<table id="nice_knowledges_table" class="table table-hover table-sm collapse show">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% knowledges.each do |knowledge| %>
+    <tr data-link="<%= nice_knowledge_path(knowledge.acronym) %>">
+      <th scope="row"><%= knowledge.acronym %></th>
+      <td><%= knowledge.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<table id="nice_knowledges_table" class="table table-hover table-sm collapse show">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" colspan="2">Nothing here!</th>
+    </tr>
+  </tbody>
+</table>
+<% end %>

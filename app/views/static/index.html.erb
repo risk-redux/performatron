@@ -1,0 +1,23 @@
+<%- view_title "Welcome!" %>
+
+<% content_for :main do %>
+<div class="row">
+  <div id="welcome" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1 class="display-3">Welcome to <%= "#{Rails.application.config.app_name}" %>!</h1>
+    <p class="lead">Huzzah! No more <kbd><kbd>&#8984;</kbd> + <kbd>F</kbd></kbd>-ing through unnavigable PDFs of NIST SP 800-181</p>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 table-responsive">
+    <%= form_tag(root_path, :method => 'get', :id => "big-search") do %>
+    <div class="big-search">
+      <span class="fa fa-search"></span>
+      <%= text_field_tag(:search, params[:search], :id => "big-search-field", :autocomplete => "off", :maxlength => 35) %>
+    </div>
+    <br /><%= submit_tag("Search", :name => nil) %>
+    <% end %>
+  </div>
+  <div id="big-search-results" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <%= render "static/shared/big_search_results" %>
+  </div>
+</div>
+<% end %>
+

@@ -1,0 +1,38 @@
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <%= link_to("#{Rails.application.config.app_name}", root_path(), { class: "navbar-brand" }) %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <%= is_active?('nice_categories#index')%>">
+            <%= link_to("Categories", nice_categories_path(), { class: "nav-link" }) %>
+          </li>
+          <li class="nav-item <%= is_active?('nice_areas#index')%>">
+            <%= link_to("Specialty Areas", nice_areas_path(), { class: "nav-link" }) %>
+          </li>
+          <li class="nav-item <%= is_active?('nice_work_roles#index')%>">
+            <%= link_to("Work Roles", nice_work_roles_path(), { class: "nav-link" }) %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              KSA+T
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to("Knowledge", nice_knowledges_path(), { class: "dropdown-item" }) %>
+              <%= link_to("Skills", nice_skills_path(), { class: "dropdown-item" }) %>
+              <%= link_to("Abilities", nice_abilities_path(), { class: "dropdown-item" }) %>
+              <%= link_to("Tasks", nice_tasks_path(), { class: "dropdown-item" }) %>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <!-- <button type="button" class="btn btn-outline-primary">Log in</button> -->
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>

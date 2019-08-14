@@ -1,0 +1,17 @@
+<div class="row">
+  <% categories.each do |category| %>
+  <div class="col-sm-3">
+    <div class="card">
+      <%= link_to(nice_category_path(category.acronym), {class: ""} ) do %>
+      <div class="card-body">
+        <p class="text-right"><span class="badge badge-pill badge-secondary"><%= category.nice_areas.count %></span></p>
+        <h3 class="display-3 card-title text-center">
+          <abbr title="<%= category.name %>"><%= category.acronym %></abbr>
+        </h3>
+        <p class="card-text small text-muted hidden-sm"><em><%= category.name %></em></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

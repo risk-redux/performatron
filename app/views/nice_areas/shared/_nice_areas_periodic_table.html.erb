@@ -1,0 +1,17 @@
+<div class="row">
+    <% areas.each do |area| %>
+    <div class="col-sm-2">
+      <div class="card">
+        <%= link_to(nice_area_path(area.acronym), {class: ""} ) do %>
+        <div class="card-body">
+          <p class="text-right"><span class="badge badge-pill badge-secondary"><%= area.nice_work_roles.count %></span></p>
+          <h3 class="display-3 card-title text-center">
+            <abbr title="<%= area.name %>"><%= area.acronym %></abbr>
+          </h3>
+          <p class="card-text small text-muted hidden-sm"><em><%= area.name %></em></p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>

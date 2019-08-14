@@ -1,0 +1,12 @@
+<%- view_title "NICE Specialty Area | #{@nice_area.acronym}" %>
+
+<% content_for :main do %>
+<h1><%= @nice_area.acronym %> <%= @nice_area.name %></h1>
+<blockquote class="blockquote">
+  <p class="mb-0"><%= @nice_area.description %></p>
+</blockquote>
+
+<h2>Related Work Roles <span class="badge badge-pill badge-secondary"><%= @nice_area.nice_work_roles.count%></span></h2>
+<%= nice_work_roles_table(@nice_area.nice_work_roles) %>
+
+<% end %>

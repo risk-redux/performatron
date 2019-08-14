@@ -1,0 +1,32 @@
+<% unless tasks.nil? %>
+<table id="nice_tasks_table" class="table table-hover table-sm collapse show">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tasks.each do |task| %>
+    <tr data-link="<%= nice_task_path(task.acronym) %>">
+      <th scope="row"><%= task.acronym %></th>
+      <td><%= task.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<table id="nice_tasks_table" class="table table-hover table-sm collapse show">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" colspan="2">Nothing here!</th>
+    </tr>
+  </tbody>
+</table>
+<% end %>

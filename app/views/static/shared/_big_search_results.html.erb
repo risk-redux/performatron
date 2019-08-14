@@ -1,0 +1,58 @@
+<% unless @search.nil? %>
+  <% if @hits['work_roles'].length == 0 &&
+    @hits['knowledges'].length == 0 &&
+    @hits['skills'].length == 0 &&
+    @hits['abilities'].length == 0 &&
+    @hits['tasks'].length == 0 &&
+    @search.to_s != '' %>
+  <h2 class='text-center'>No matches found.</h2>
+  <% else %>
+  <ul class='list-unstyled'>
+    <% @hits['work_roles'].each do |hit| %>
+      <%= link_to(nice_work_role_path(hit.acronym)) do %>
+        <li>
+          <h2><%= hit.acronym %> <small><%= hit.name %></small></h2>
+          <p class="text-muted small"><em><%= hit.description %></em></p>
+        </li>
+      <% end %>
+    <% end %>
+
+    <% @hits['knowledges'].each do |hit| %>
+      <%= link_to(nice_knowledge_path(hit.acronym)) do %>
+        <li>
+          <h2><small><em><%= hit.acronym %></em></small></h2>
+          <p class="text-muted small"><em><%= hit.description%></em></p>
+        </li>
+      <% end %>
+    <% end %>
+
+    <% @hits['skills'].each do |hit| %>
+      <%= link_to(nice_skill_path(hit.acronym)) do %>
+        <li>
+          <h2><small><em><%= hit.acronym %></em></small></h2>
+          <p class="text-muted small"><em><%= hit.description%></em></p>
+        </li>
+      <% end %>
+    <% end %>
+    
+    <% @hits['abilities'].each do |hit| %>
+      <%= link_to(nice_ability_path(hit.acronym)) do %>
+        <li>
+          <h2><small><em><%= hit.acronym %></em></small></h2>
+          <p class="text-muted small"><em><%= hit.description%></em></p>
+        </li>
+      <% end %>
+    <% end %>
+
+    <% @hits['tasks'].each do |hit| %>
+    <%= link_to(nice_task_path(hit.acronym)) do %>
+      <li>
+        <h2><small><em><%= hit.acronym %></em></small></h2>
+        <p class="text-muted small"><em><%= hit.description%></em></p>
+      </li>
+    <% end %>
+  <% end %>
+
+  </ul>
+  <% end %>
+<% end %>
