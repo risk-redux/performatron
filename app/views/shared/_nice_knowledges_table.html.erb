@@ -4,6 +4,7 @@
     <tr>
       <th scope="col">Code</th>
       <th scope="col">Description</th>
+      <th class="text-right" scope="col" nowrap>Work Roles</th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +12,7 @@
     <tr data-link="<%= nice_knowledge_path(knowledge.acronym) %>">
       <th scope="row"><%= knowledge.acronym %></th>
       <td><%= knowledge.description %></td>
+      <td><%= knowledge.nice_work_roles.count %></td>
     </tr>
     <% end %>
   </tbody>
@@ -21,6 +23,7 @@
     <tr>
       <th scope="col">Code</th>
       <th scope="col">Description</th>
+      <th scope="col" nowrap>Work Roles</th>
     </tr>
   </thead>
   <tbody>

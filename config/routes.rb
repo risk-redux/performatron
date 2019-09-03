@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "nice_work_roles/:acronym", to: 'nice_work_roles#show', as: :nice_work_role
 
   get "about", to: "static#about", as: :about
+  get "index", to: "static#index", as: :index
   
   root to: "static#index"
 

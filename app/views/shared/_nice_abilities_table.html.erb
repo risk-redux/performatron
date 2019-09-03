@@ -4,6 +4,7 @@
     <tr>
       <th scope="col">Code</th>
       <th scope="col">Description</th>
+      <th scope="col" nowrap>Work Roles</th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +12,7 @@
     <tr data-link="<%= nice_ability_path(ability.acronym) %>">
       <th scope="row"><%= ability.acronym %></th>
       <td><%= ability.description %></td>
+      <td><%= ability.nice_work_roles.count %></td>
     </tr>
     <% end %>
   </tbody>
@@ -21,6 +23,7 @@
     <tr>
       <th scope="col">Code</th>
       <th scope="col">Description</th>
+      <th scope="col">Work Roles</th>
     </tr>
   </thead>
   <tbody>

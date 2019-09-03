@@ -13,7 +13,11 @@ class StaticController < ApplicationController
     @search = params[:search]
     @hits = NiceWorkRole.search(params[:search])
 
-    render action: "index"
+    respond_to do |format|
+      format.html
+      format.js
+      format.json { render json: @hits.to_json }
+    end
   end
 
   def about

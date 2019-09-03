@@ -3,12 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 searchSub = ->
-  $("#welcome").hide(1000)
   url = "/"
   form = $("#big-search")
   formData = form.serialize()
   request = jQuery.get url, formData, null, "script"
-  console.log(request)
+  console.log(request, formData)
 
 liveSearch = ->
   timer = 0
