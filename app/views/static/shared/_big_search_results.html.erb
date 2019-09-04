@@ -9,48 +9,48 @@
   <% else %>
   <ul class='list-unstyled'>
     <% @hits['work_roles'].each { |hit| %>
-      <%= link_to(nice_work_role_path(hit.acronym)) do %>
-        <li>
-          <h2><%= hit.acronym %> <small><%= hit.name %></small></h2>
-          <p class="text-muted small"><em><%= hit.description %></em></p>
-        </li>
-      <% end %>
+      <li>
+        <%= link_to(nice_work_role_path(hit.acronym)) do %>
+        <h2><%= hit.acronym %> <small><%= hit.name %></small></h2>
+        <% end %>
+        <p class="text-muted small"><em><%= hit.description %></em></p>
+      </li>
     <% } unless @hits['work_roles'].nil? %>
 
     <% @hits['knowledges'].each { |hit| %>
-      <%= link_to(nice_knowledge_path(hit.acronym)) do %>
-        <li>
-          <h2><small><em><%= hit.acronym %></em></small></h2>
-          <p class="text-muted small"><em><%= hit.description%></em></p>
-        </li>
-      <% end %>
+      <li>
+        <%= link_to(nice_knowledge_path(hit.acronym)) do %>
+        <h2><small><em><%= hit.acronym %></em></small></h2>
+        <% end %>
+        <p class="text-muted small"><em><%= hit.description%></em></p>
+      </li>
     <% } unless @hits['knowledges'].nil? %>
 
     <% @hits['skills'].each { |hit| %>
-      <%= link_to(nice_skill_path(hit.acronym)) do %>
-        <li>
-          <h2><small><em><%= hit.acronym %></em></small></h2>
-          <p class="text-muted small"><em><%= hit.description%></em></p>
-        </li>
-      <% end %>
+      <li>
+        <%= link_to(nice_skill_path(hit.acronym)) do %>
+        <h2><small><em><%= hit.acronym %></em></small></h2>
+        <% end %>
+        <p class="text-muted small"><em><%= hit.description%></em></p>
+      </li>
     <% } unless @hits['skills'].nil? %>
     
     <% @hits['abilities'].each { |hit| %>
-      <%= link_to(nice_ability_path(hit.acronym)) do %>
-        <li>
-          <h2><small><em><%= hit.acronym %></em></small></h2>
-          <p class="text-muted small"><em><%= hit.description%></em></p>
-        </li>
-      <% end %>
+      <li>
+        <%= link_to(nice_ability_path(hit.acronym)) do %>
+        <h2><small><em><%= hit.acronym %></em></small></h2>
+        <% end %>
+        <p class="text-muted small"><em><%= hit.description%></em></p>
+      </li>
     <% } unless @hits['abilities'].nil? %>
 
     <% @hits['tasks'].each { |hit| %>
-    <%= link_to(nice_task_path(hit.acronym)) do %>
-      <li>
-        <h2><small><em><%= hit.acronym %></em></small></h2>
-        <p class="text-muted small"><em><%= hit.description%></em></p>
-      </li>
-    <% end %>
+    <li>
+      <%= link_to(nice_task_path(hit.acronym)) do %>
+      <h2><small><em><%= hit.acronym %></em></small></h2>
+      <% end %>
+      <p class="text-muted small"><em><%= hit.description%></em></p>
+    </li>
   <% } unless @hits['tasks'].nil? %>
 
   </ul>
