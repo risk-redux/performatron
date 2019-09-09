@@ -28,4 +28,29 @@ module ApplicationHelper
   def nice_work_roles_table(work_roles)
     render("shared/nice_work_roles_table", work_roles: work_roles)
   end
+
+  def nice_work_roles_arc_diagram(similarity_map, dimension)
+    data = { 'nodes': [], 'links': [] }
+
+    similarity_map.each do |source_work_role, maps|
+      data[:nodes].push({
+        'name': source_work_role.acronym,
+        'n': 5, #work_role.nice_knowledges.count,
+        'grp': source_work_role.nice_area.nice_category.id,
+        'id': source_work_role.id,
+      })
+
+      similarity_map[source_work_role][dimension].each do |target_work_role, value|
+        unless value.count < 2
+          data[:links].push({
+            "source": source_work_role.id,
+            "target": target_work_role.id,
+            "value": value.count
+          })
+        end
+      end
+    end
+
+    render("nice_work_roles/shared/nice_work_roles_arc_diagram", dimension: dimension, data: json_escape(data.to_json).html_safe)
+  end
 end

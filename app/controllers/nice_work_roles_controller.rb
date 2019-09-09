@@ -1,6 +1,8 @@
 class NiceWorkRolesController < ApplicationController
   def index
     @nice_work_roles = NiceWorkRole.all
+
+    @similarity_map = NiceWorkRole.similarity_map
   end
 
   def show

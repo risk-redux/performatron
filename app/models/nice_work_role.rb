@@ -53,4 +53,46 @@ class NiceWorkRole < ApplicationRecord
 
     return @hits
   end
+
+  def self.similarity_map
+    similarity_map = {}
+
+    NiceWorkRole.all.each do |source_nice_work_role|
+
+      similarity_map[source_nice_work_role] = { shared_knowledge: {}, shared_skills: {}, shared_abilities: {}, shared_tasks: {} }
+
+      NiceWorkRole.all.each do |target_nice_work_role|
+        unless source_nice_work_role.id == target_nice_work_role.id
+          similarity_map[source_nice_work_role][:shared_knowledge][target_nice_work_role] = 
+            shared_knowledge(source_nice_work_role, target_nice_work_role)
+          similarity_map[source_nice_work_role][:shared_skills][target_nice_work_role] = 
+            shared_skills(source_nice_work_role, target_nice_work_role)
+          similarity_map[source_nice_work_role][:shared_abilities][target_nice_work_role] = 
+            shared_abilities(source_nice_work_role, target_nice_work_role)
+          similarity_map[source_nice_work_role][:shared_tasks][target_nice_work_role] = 
+            shared_tasks(source_nice_work_role, target_nice_work_role)
+        end
+      end
+    end
+
+    return similarity_map
+  end
+
+  private
+
+  def self.shared_knowledge(source, target)
+    return source.nice_knowledges & target.nice_knowledges
+  end
+
+  def self.shared_skills(source, target)
+    return source.nice_skills & target.nice_skills
+  end
+
+  def self.shared_abilities(source, target)
+    return source.nice_abilities & target.nice_abilities
+  end
+
+  def self.shared_tasks(source, target)
+    return source.nice_tasks & target.nice_tasks
+  end
 end
