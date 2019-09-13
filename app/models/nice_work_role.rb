@@ -54,25 +54,18 @@ class NiceWorkRole < ApplicationRecord
     return @hits
   end
 
-  def self.similarity_map
-    similarity_map = {}
+  def similarity_map(target_nice_work_role, dimension = :knowledge)
+    similarity_map = []
 
-    NiceWorkRole.all.each do |source_nice_work_role|
-
-      similarity_map[source_nice_work_role] = { shared_knowledge: {}, shared_skills: {}, shared_abilities: {}, shared_tasks: {} }
-
-      NiceWorkRole.all.each do |target_nice_work_role|
-        unless source_nice_work_role.id == target_nice_work_role.id
-          similarity_map[source_nice_work_role][:shared_knowledge][target_nice_work_role] = 
-            shared_knowledge(source_nice_work_role, target_nice_work_role)
-          similarity_map[source_nice_work_role][:shared_skills][target_nice_work_role] = 
-            shared_skills(source_nice_work_role, target_nice_work_role)
-          similarity_map[source_nice_work_role][:shared_abilities][target_nice_work_role] = 
-            shared_abilities(source_nice_work_role, target_nice_work_role)
-          similarity_map[source_nice_work_role][:shared_tasks][target_nice_work_role] = 
-            shared_tasks(source_nice_work_role, target_nice_work_role)
-        end
-      end
+    case dimension
+    when :knowledge
+      similarity_map = shared_knowledge(self, target_nice_work_role)
+    when :skills
+      similarity_map = shared_skills(self, target_nice_work_role)
+    when :abilities
+      similarity_map = shared_abilities(self, target_nice_work_role)
+    when :tasks
+      similarity_map = shared_tasks(self, target_nice_work_role)
     end
 
     return similarity_map
@@ -80,19 +73,19 @@ class NiceWorkRole < ApplicationRecord
 
   private
 
-  def self.shared_knowledge(source, target)
+  def shared_knowledge(source, target)
     return source.nice_knowledges & target.nice_knowledges
   end
 
-  def self.shared_skills(source, target)
+  def shared_skills(source, target)
     return source.nice_skills & target.nice_skills
   end
 
-  def self.shared_abilities(source, target)
+  def shared_abilities(source, target)
     return source.nice_abilities & target.nice_abilities
   end
 
-  def self.shared_tasks(source, target)
+  def shared_tasks(source, target)
     return source.nice_tasks & target.nice_tasks
   end
 end

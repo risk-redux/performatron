@@ -11,16 +11,16 @@
 <p>NICE work roles share common knowledge, skills, abilities, and tasks. The arc diagrams below illustrates the interconnectedness of work roles, which can help conceptualize career paths, progressions, etc.</p>
 
 <h3>Knowledge</h3>
-<%= nice_work_roles_arc_diagram(@similarity_map, :shared_knowledge) %>
+<%= nice_work_roles_arc_diagram(:knowledge) %>
 
 <h3>Skills</h3>
-<%= nice_work_roles_arc_diagram(@similarity_map, :shared_skills) %>
+<%= nice_work_roles_arc_diagram(:skills) %>
 
 <h3>Abilities</h3>
-<%= nice_work_roles_arc_diagram(@similarity_map, :shared_abilities) %>
+<%= nice_work_roles_arc_diagram(:abilities) %>
 
 <h3>Tasks</h3>
-<%= nice_work_roles_arc_diagram(@similarity_map, :shared_tasks) %>
+<%= nice_work_roles_arc_diagram(:tasks) %>
 
 <h2>Inventory</h2>
 <%= nice_work_roles_table(@nice_work_roles) %>

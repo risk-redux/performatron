@@ -29,24 +29,29 @@ module ApplicationHelper
     render("shared/nice_work_roles_table", work_roles: work_roles)
   end
 
-  def nice_work_roles_arc_diagram(similarity_map, dimension)
+  def nice_work_roles_arc_diagram(dimension)
     data = { 'nodes': [], 'links': [] }
 
-    similarity_map.each do |source_work_role, maps|
+    NiceWorkRole.all.each do |source_nice_work_role|
       data[:nodes].push({
-        'name': source_work_role.acronym,
+        'name': source_nice_work_role.acronym,
         'n': 5, #work_role.nice_knowledges.count,
-        'grp': source_work_role.nice_area.nice_category.id,
-        'id': source_work_role.id,
+        'grp': source_nice_work_role.nice_area.nice_category.id,
+        'id': source_nice_work_role.id,
       })
 
-      similarity_map[source_work_role][dimension].each do |target_work_role, value|
-        unless value.count < 2
-          data[:links].push({
-            "source": source_work_role.id,
-            "target": target_work_role.id,
-            "value": value.count
-          })
+      NiceWorkRole.all.each do |target_nice_work_role|
+        puts source_nice_work_role.id, " X ", target_nice_work_role.id, "\n\n\n\n\n\n"
+        unless source_nice_work_role.id == target_nice_work_role.id
+          connections = source_nice_work_role.similarity_map(target_nice_work_role, dimension)
+          puts connections.count, "\n\n\n\n\n\n"
+          unless connections.count < 15
+            data[:links].push({
+              "source": source_nice_work_role.id,
+              "target": target_nice_work_role.id,
+              "value": connections.count
+            })
+          end
         end
       end
     end
