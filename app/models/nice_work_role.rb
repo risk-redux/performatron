@@ -57,7 +57,7 @@ class NiceWorkRole < ApplicationRecord
   def similarity_map(target_nice_work_role, dimension = :knowledge)
     similarity_map = []
 
-    case dimension
+    case dimension.to_sym
     when :knowledge
       similarity_map = shared_knowledge(self, target_nice_work_role)
     when :skills

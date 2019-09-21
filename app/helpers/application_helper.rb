@@ -39,23 +39,8 @@ module ApplicationHelper
         'grp': source_nice_work_role.nice_area.nice_category.id,
         'id': source_nice_work_role.id,
       })
-
-      NiceWorkRole.all.each do |target_nice_work_role|
-        puts source_nice_work_role.id, " X ", target_nice_work_role.id, "\n\n\n\n\n\n"
-        unless source_nice_work_role.id == target_nice_work_role.id
-          connections = source_nice_work_role.similarity_map(target_nice_work_role, dimension)
-          puts connections.count, "\n\n\n\n\n\n"
-          unless connections.count < 15
-            data[:links].push({
-              "source": source_nice_work_role.id,
-              "target": target_nice_work_role.id,
-              "value": connections.count
-            })
-          end
-        end
-      end
     end
-
-    render("nice_work_roles/shared/nice_work_roles_arc_diagram", dimension: dimension, data: json_escape(data.to_json).html_safe)
+    
+    render("shared/nice_work_roles_arc_diagram", dimension: dimension, data: json_escape(data.to_json).html_safe)
   end
 end

@@ -3,6 +3,11 @@
 <% content_for :main do %>
 <h1>NICE Knowledge <span class="badge badge-pill badge-secondary"><%= @knowledges.count%></span></h1>
 
+<h2>Interconnections</h2>
+<%= render partial: "shared/arc_diagram" %>
+<%= nice_work_roles_arc_diagram(:knowledge) %>
+
+<h2>Inventory</h2>
 <%= nice_knowledges_table(@knowledges) %>
 
 <% end %>

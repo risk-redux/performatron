@@ -1,0 +1,40 @@
+<script>
+function loadData(data, dimension) {
+  // Because the indices from the map iterator may complete their AJAX calls out-of-order, I need to keep count separately for the progress bar.
+  count = 0;
+
+  data.nodes.map(function(work_role, index) {
+    $.ajax({
+      type: "GET",
+      url: `/nice_work_roles/${work_role.name}/${dimension}/similarity_map.json`,
+      dataType: "json",
+      cache: false,
+      success: function(similarity_map) {
+        count += 1;
+        width = (count / data.nodes.length) * 100;
+        
+        console.log(`/nice_work_roles/${work_role.name}/${dimension}/similarity_map.json: ` + `${count} / ${data.nodes.length} = ${width}% complete.`);
+        console.log(similarity_map);
+        
+        $(`#nice_work_roles_${dimension}_progress_bar div.progress-bar`).attr("style", `width: ${width}%`);
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        count += 1;
+        width = ((count) / data.nodes.length) * 100;
+        
+        console.error(`/nice_work_roles/${work_role.name}/${dimension}/similarity_map.json: ` + `${count} / ${data.nodes.length} = ${width}% complete.`);
+        console.error(`Request: ${XMLHttpRequest}`);
+        console.error(`textStatus: ${textStatus}`);
+        console.error(`errorThrow: ${errorThrown}`);
+
+        $(`#nice_work_roles_${dimension}_progress_bar div.progress-bar`).attr("style", `width: ${width}%`);
+      }
+    });
+  });
+}
+
+function drawArcDiagram(data) {
+  console.log("Hello!");
+  $(`#nice_work_roles_${dimension}_progress_bar`).hide();
+}
+</script>
