@@ -13,7 +13,11 @@
   <tbody>
     <% work_roles.each do |role| %>
     <tr data-link="<%= nice_work_role_path(role.acronym) %>">
-      <th scope="row"><%= role.acronym %> [<%= role.opm_code %>]</th>
+      <th scope="row">
+        <%= link_to nice_work_role_path(role.acronym) do %>
+        <%= role.acronym %> [<%= role.opm_code %>]
+        <% end %>
+      </th>
       <td><%= role.name %></td>
       <td><%= role.nice_knowledge_mappings.count %></td>
       <td><%= role.nice_skill_mappings.count %></td>

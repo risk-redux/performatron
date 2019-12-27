@@ -10,7 +10,11 @@
   <tbody>
     <% tasks.each do |task| %>
     <tr data-link="<%= nice_task_path(task.acronym) %>">
-      <th scope="row"><%= task.acronym %></th>
+      <th scope="row">
+        <%= link_to nice_task_path(task.acronym) do %>
+        <%= task.acronym %>
+        <% end %>
+      </th>
       <td><%= task.description %></td>
       <td><%= task.nice_work_roles.count %></td>
     </tr>

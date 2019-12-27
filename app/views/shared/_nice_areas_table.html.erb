@@ -9,7 +9,11 @@
     <tbody>
       <% areas.each do |area| %>
       <tr data-link="<%= nice_area_path(area.acronym) %>">
-        <th scope="row"><%= area.nice_category.acronym %>-<%= area.acronym %></th>
+        <th scope="row">
+          <%= link_to nice_area_path(area.acronym) do %>
+          <%= area.nice_category.acronym %>-<%= area.acronym %>
+          <% end %>
+        </th>
         <td><%= area.name %></td>
         <td><%= area.nice_work_roles.count %></td>
       </tr>
