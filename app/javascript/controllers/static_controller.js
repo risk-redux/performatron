@@ -1,20 +1,18 @@
-var liveSearch, searchSub;
+import { Controller } from "@hotwired/stimulus"
 
-searchSub = function() {
-  var form, formData, request, url;
-  url = "/";
-  form = $("#big-search");
-  formData = form.serialize();
-  request = jQuery.get(url, formData, null, "script");
-  return console.log(request, formData);
+const searchSub = function () {
+  $("#static").hide(1000);
+  const url = "/";
+  const form = $("#big-search");
+  const formData = form.serialize();
+  return $.get(url, formData, null, "script");
 };
 
-liveSearch = function() {
-  var timer;
-  timer = 0;
-  return $("#big-search-field").bind("keyup", function() {
+const liveSearch = function () {
+  let timer = 0;
+  return $("#big-search-field").bind("keyup", function () {
     clearTimeout(timer);
-    return timer = setTimeout(searchSub, 200);
+    return timer = setTimeout(searchSub, 500);
   });
 };
 
