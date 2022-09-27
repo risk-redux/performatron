@@ -13,10 +13,6 @@
       
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto text-right">
-          <li class="nav-item <%= is_active?('static#about')%>">
-            <%= link_to("About", about_path(), { class: "nav-link" }) %>
-          </li>
-          <div class="dropdown-divider"></div>
           <li class="nav-item <%= is_active?('nice_categories#index')%>">
             <%= link_to("Categories", nice_categories_path(), { class: "nav-link" }) %>
           </li>
@@ -28,16 +24,16 @@
           </li>
           <div class="dropdown-divider"></div>
           <li class="nav-item <%= is_active?('nice_knowledges#index')%>">
-            <%= link_to("Knowledge", nice_knowledges_path(), { class: "nav-link" }) %>
+            <em><%= link_to("Knowledge", nice_knowledges_path(), { class: "nav-link" }) %></em>
           </li>
           <li class="nav-item <%= is_active?('nice_skills#index')%>">
-            <%= link_to("Skills", nice_skills_path(), { class: "nav-link" }) %>
+            <em><%= link_to("Skills", nice_skills_path(), { class: "nav-link" }) %></em>
           </li>
           <li class="nav-item <%= is_active?('nice_abilities#index')%>">
-            <%= link_to("Abilities", nice_abilities_path(), { class: "nav-link" }) %>
+            <em><%= link_to("Abilities", nice_abilities_path(), { class: "nav-link" }) %></em>
           </li>
           <li class="nav-item <%= is_active?('nice_tasks#index')%>">
-            <%= link_to("Tasks", nice_tasks_path(), { class: "nav-link" }) %>
+            <em><%= link_to("Tasks", nice_tasks_path(), { class: "nav-link" }) %></em>
           </li>
         </ul>
       </div>
