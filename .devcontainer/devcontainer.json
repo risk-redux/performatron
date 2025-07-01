@@ -1,0 +1,7 @@
+{
+  "name": "performatron",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "rails-app",
+  "workspaceFolder": "/performatron",
+  "postCreateCommand": "/performatron/bin/setup"
+}
