@@ -300,7 +300,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.4.4p34
+   ruby 3.4.6p54
 
 BUNDLED WITH
    2.7.2
