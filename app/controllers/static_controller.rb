@@ -10,8 +10,10 @@ class StaticController < ApplicationController
     @nice_abilities = NiceAbility.all
     @nice_tasks = NiceTask.all
 
-    @search = params[:search]
-    @hits = NiceWorkRole.search(params[:search])
+    @search = search_parameters
+    @hits = NiceWorkRole.search(@search)
+
+    @placeholder = NiceWorkRole.select(:name).sample(1).first.name.titlecase
 
     respond_to do |format|
       format.html
@@ -22,4 +24,11 @@ class StaticController < ApplicationController
 
   def about
   end
+
+  private
+
+  def search_parameters
+    params[:search].to_s
+  end
+
 end

@@ -11,7 +11,7 @@
     <% @hits['work_roles'].each { |hit| %>
       <li>
         <%= link_to(nice_work_role_path(hit.acronym)) do %>
-        <h2><%= hit.acronym %> <small><%= hit.name %></small></h2>
+        <h2><span class="fixed-width"><%= hit.acronym %></span> <small><%= hit.name %></small></h2>
         <% end %>
         <p class="text-muted small"><em><%= hit.description %></em></p>
       </li>
@@ -20,7 +20,7 @@
     <% @hits['knowledges'].each { |hit| %>
       <li>
         <%= link_to(nice_knowledge_path(hit.acronym)) do %>
-        <h2><small><em><%= hit.acronym %></em></small></h2>
+        <h2><small class="fixed-width"><em><%= hit.acronym %></em></small></h2>
         <% end %>
         <p class="text-muted small"><em><%= hit.description%></em></p>
       </li>
@@ -29,7 +29,7 @@
     <% @hits['skills'].each { |hit| %>
       <li>
         <%= link_to(nice_skill_path(hit.acronym)) do %>
-        <h2><small><em><%= hit.acronym %></em></small></h2>
+        <h2><small class="fixed-width"><em><%= hit.acronym %></em></small></h2>
         <% end %>
         <p class="text-muted small"><em><%= hit.description%></em></p>
       </li>
@@ -38,7 +38,7 @@
     <% @hits['abilities'].each { |hit| %>
       <li>
         <%= link_to(nice_ability_path(hit.acronym)) do %>
-        <h2><small><em><%= hit.acronym %></em></small></h2>
+        <h2><small class="fixed-width"><em><%= hit.acronym %></em></small></h2>
         <% end %>
         <p class="text-muted small"><em><%= hit.description%></em></p>
       </li>
@@ -47,7 +47,7 @@
     <% @hits['tasks'].each { |hit| %>
     <li>
       <%= link_to(nice_task_path(hit.acronym)) do %>
-      <h2><small><em><%= hit.acronym %></em></small></h2>
+      <h2><small class="fixed-width"><em><%= hit.acronym %></em></small></h2>
       <% end %>
       <p class="text-muted small"><em><%= hit.description%></em></p>
     </li>

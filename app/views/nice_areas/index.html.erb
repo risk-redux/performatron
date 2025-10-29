@@ -2,10 +2,15 @@
 
 <% content_for :main do %>
 <h1>NICE Specialty Areas <span class="badge badge-pill badge-secondary"><%= @nice_areas.count%></span></h1>
-<blockquote class="blockquote">
-  <p class="mb-0">Categories contain groupings of cybersecurity work, which are called Specialty Areas. There were 31 specialty areas called out in National Cybersecurity Workforce Framework version 1.0 and 32 in National Cybersecurity Workforce Framework version 2.0. Each specialty area represents an area of concentrated work, or function, within cybersecurity and related work. In previous versions of the NICE Framework, tasks and KSAs were associated with each specialty area. KSAs and Tasks are now associated with the work roles.</p>
-  <footer class="blockquote-footer"><cite title="NIST SP 800-181">NIST SP 800-181</cite></footer>
-</blockquote>
+
+<figure>
+  <blockquote class="blockquote">
+    <p><em>Categories contain groupings of cybersecurity work, which are called Specialty Areas. There were 31 specialty areas called out in National Cybersecurity Workforce Framework version 1.0 and 32 in National Cybersecurity Workforce Framework version 2.0. Each specialty area represents an area of concentrated work, or function, within cybersecurity and related work. In previous versions of the NICE Framework, tasks and KSAs were associated with each specialty area. KSAs and Tasks are now associated with the work roles.</em></p>
+    <figcaption class="blockquote-footer">
+      <cite title="NIST SP 800-181">NIST SP 800-181</cite>
+    </figcaption>
+  </blockquote>
+</figure>
 
 <%= nice_areas_table(@nice_areas) %>
 

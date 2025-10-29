@@ -2,10 +2,15 @@
 
 <% content_for :main do %>
 <h1>NICE Work Roles <span class="badge badge-pill badge-secondary"><%= @nice_work_roles.count%></span></h1>
-<blockquote class="blockquote">
-  <p class="mb-0">Work roles are the most detailed groupings of cybersecurity and related work which include a list of attributes required to perform that role in the form of knowledge, skills, and abilities (KSAs) and tasks performed in that role.</p>
-  <footer class="blockquote-footer"><cite title="NIST SP 800-181">NIST SP 800-181</cite></footer>
-</blockquote>
+
+<figure>
+  <blockquote class="blockquote">
+    <p><em>Work roles are the most detailed groupings of cybersecurity and related work which include a list of attributes required to perform that role in the form of knowledge, skills, and abilities (KSAs) and tasks performed in that role.</em></p>
+    <figcaption class="blockquote-footer">
+      <cite title="NIST SP 800-181">NIST SP 800-181</cite>
+    </figcaption>
+  </blockquote>
+</figure>
 
 <%= nice_work_roles_table(@nice_work_roles) %>
 
