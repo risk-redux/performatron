@@ -62,7 +62,6 @@ tr.moved-to {
   color: #bbbbbb;
 }
 
-
 tr.enhancement {
   font-family: 'Fira Mono', monospace;
   font-style: italic;
@@ -86,4 +85,8 @@ a {
 abbr, abbr[title] {
   text-decoration: none;
   -webkit-text-decoration: none;
+}
+
+.text-tiffany {
+  color: #0abab5;
 }
