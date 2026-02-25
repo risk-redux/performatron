@@ -11,14 +11,14 @@ class NiceCategoriesController < ApplicationController
   end
 
   def show
-    @nice_category = NiceCategory.find_by(acronym: params[:acronym])
+    @nice_category = NiceCategory.find_by(category_code: params[:category_code])
 
     respond_to do |format|
       format.html {}
       format.json {
         render json: @nice_category.as_json(except: [:id, :created_at, :updated_at],
         include: [
-          nice_areas:  { except: [:id, :nice_category_id, :description, :created_at, :updated_at] }
+          nice_competencies:  { except: [:id, :nice_category_id, :description, :created_at, :updated_at] }
         ])
       }
     end

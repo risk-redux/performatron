@@ -9,10 +9,10 @@
   </thead>
   <tbody>
     <% skills.each do |skill| %>
-    <tr data-link="<%= nice_skill_path(skill.acronym) %>">
+    <tr data-link="<%= nice_skill_path(skill.skill_code) %>">
       <th scope="row">
-        <%= link_to nice_skill_path(skill.acronym) do %>
-        <%= skill.acronym %>
+        <%= link_to nice_skill_path(skill.skill_code) do %>
+        <%= skill.skill_code %>
         <% end %>
       </th>
       <td><%= skill.description %></td>

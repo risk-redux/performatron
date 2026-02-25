@@ -9,10 +9,10 @@
   </thead>
   <tbody>
     <% knowledges.each do |knowledge| %>
-    <tr data-link="<%= nice_knowledge_path(knowledge.acronym) %>">
+    <tr data-link="<%= nice_knowledge_path(knowledge.knowledge_code) %>">
       <th scope="row">
-        <%= link_to nice_knowledge_path(knowledge.acronym) do %>
-        <%= knowledge.acronym %>
+        <%= link_to nice_knowledge_path(knowledge.knowledge_code) do %>
+        <%= knowledge.knowledge_code %>
         <% end %>
       </th>
       <td><%= knowledge.description %></td>

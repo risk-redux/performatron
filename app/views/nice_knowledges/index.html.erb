@@ -1,8 +1,10 @@
 <%- view_title "NICE Knowledge" %>
 
 <% content_for :main do %>
-<h1>NICE Knowledge <span class="badge badge-pill badge-secondary"><%= @knowledges.count%></span></h1>
+<h1>NICE Knowledge <span class="badge rounded-pill text-bg-secondary"><%= @knowledges.count%></span></h1>
 
+<div class="pb-5">
 <%= nice_knowledges_table(@knowledges) %>
+</div>
 
 <% end %>

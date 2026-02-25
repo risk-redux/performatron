@@ -1,0 +1,2 @@
+class NiceCompetency < ApplicationRecord
+end

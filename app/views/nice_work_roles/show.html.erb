@@ -1,48 +1,41 @@
-<%- view_title "NICE Work Role - #{@nice_work_role.acronym}" %>
+<%- view_title "NICE Work Role - #{ @nice_work_role.work_role_code }" %>
 
 <% content_for :main do %>
 <h1>
-  <%= @nice_work_role.acronym %>
-  <small class="text-muted"><%= @nice_work_role.name %></small>
+  <%= @nice_work_role.work_role_code %><br/>
+  <em>
+    <small class="text-muted">
+      <%= @nice_work_role.name %> <span class="badge rounded-pill text-bg-secondary opm-code">OPM Code: <%= @nice_work_role.opm_code %></span>
+    </small>
+  </em>
 </h1>
-<p><%= @nice_work_role.nice_area.nice_category.description %></p>
-<p><%= @nice_work_role.nice_area.description %></p>
+<p class="lead"><%= @nice_work_role.nice_category.description %></p>
 <p><%= @nice_work_role.description %></p>
 
-<h2>
-  <a data-bs-toggle="collapse" href="#nice_knowledges_table" aria-expanded="false" aria-controls="collapseExample">
-    <small><i class="fa-fw fa-solid fa-arrow-up-arrow-down"></i></small>
-  </a>
-  Knowledges
-  <span class="badge badge-pill badge-secondary"><%= @nice_work_role.nice_knowledges.count%></span>
-</h2>
-<%= nice_knowledges_table(@nice_work_role.nice_knowledges) %>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="task-tab" data-bs-toggle="tab" data-bs-target="#task" type="button" role="tab" aria-controls="task" aria-selected="true">Task <span class="badge rounded-pill text-bg-secondary"><%= @nice_work_role.nice_tasks.count%></span></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="knowledge-tab" data-bs-toggle="tab" data-bs-target="#knowledge" type="button" role="tab" aria-controls="knowledge" aria-selected="false">Knowledge <span class="badge rounded-pill text-bg-secondary"><%= @nice_work_role.nice_knowledges.count%></span></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="skill-tab" data-bs-toggle="tab" data-bs-target="#skill" type="button" role="tab" aria-controls="skill" aria-selected="false">Skill <span class="badge rounded-pill text-bg-secondary"><%= @nice_work_role.nice_skills.count%></span></button>
+  </li>
+</ul>
 
-<h2>
-  <a data-bs-toggle="collapse" href="#nice_skills_table" aria-expanded="false" aria-controls="collapseExample">
-    <small><i class="fa-fw fa-solid fa-arrow-up-arrow-down"></i></small>
-  </a>
-  Skills
-  <span class="badge badge-pill badge-secondary"><%= @nice_work_role.nice_skills.count%></span>
-</h2>
-<%= nice_skills_table(@nice_work_role.nice_skills) %>
-
-<h2>
-  <a data-bs-toggle="collapse" href="#nice_abilities_table" aria-expanded="false" aria-controls="collapseExample">
-    <small><i class="fa-fw fa-solid fa-arrow-up-arrow-down"></i></small>
-  </a>
-  Abilities
-  <span class="badge badge-pill badge-secondary"><%= @nice_work_role.nice_abilities.count%></span>
-</h2>
-<%= nice_abilities_table(@nice_work_role.nice_abilities) %>
-
-<h2>
-  <a data-bs-toggle="collapse" href="#nice_tasks_table" aria-expanded="false" aria-controls="collapseExample">
-    <small><i class="fa-fw fa-solid fa-arrow-up-arrow-down"></i></small>
-  </a>
-  Tasks
-  <span class="badge badge-pill badge-secondary"><%= @nice_work_role.nice_tasks.count%></span>
-</h2>
-<%= nice_tasks_table(@nice_work_role.nice_tasks) %>
+<!-- Tab panes -->
+<div class="tab-content pb-5 pt-3">
+  <div class="tab-pane active" id="task" role="tabpanel" aria-labelledby="task-tab" tabindex="0">
+    <%= nice_tasks_table(@nice_work_role.nice_tasks) %>
+  </div>
+  <div class="tab-pane" id="knowledge" role="tabpanel" aria-labelledby="knowledge-tab" tabindex="0">
+    <%= nice_knowledges_table(@nice_work_role.nice_knowledges) %>
+  </div>
+  <div class="tab-pane" id="skill" role="tabpanel" aria-labelledby="skill-tab" tabindex="0">
+    <%= nice_skills_table(@nice_work_role.nice_skills) %>
+  </div>
+</div>
 
 <% end %>

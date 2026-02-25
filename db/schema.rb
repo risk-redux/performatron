@@ -12,34 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2019_08_06_153027) do
 
-  create_table "nice_abilities", force: :cascade do |t|
-    t.string "acronym"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "nice_ability_mappings", force: :cascade do |t|
-    t.integer "nice_ability_id"
-    t.integer "nice_work_role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["nice_ability_id"], name: "index_nice_ability_mappings_on_nice_ability_id"
-    t.index ["nice_work_role_id"], name: "index_nice_ability_mappings_on_nice_work_role_id"
-  end
-
-  create_table "nice_areas", force: :cascade do |t|
+  create_table "nice_competencies", force: :cascade do |t|
     t.string "name"
-    t.string "acronym"
+    t.string "competency_code"
     t.text "description"
-    t.integer "nice_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "nice_categories", force: :cascade do |t|
     t.string "name"
-    t.string "acronym"
+    t.string "category_code"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_153027) do
   end
 
   create_table "nice_knowledges", force: :cascade do |t|
-    t.string "acronym"
+    t.string "knowledge_code"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_153027) do
   end
 
   create_table "nice_skills", force: :cascade do |t|
-    t.string "acronym"
+    t.string "skill_code"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -87,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_153027) do
   end
 
   create_table "nice_tasks", force: :cascade do |t|
-    t.string "acronym"
+    t.string "task_code"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -95,9 +78,9 @@ ActiveRecord::Schema.define(version: 2019_08_06_153027) do
 
   create_table "nice_work_roles", force: :cascade do |t|
     t.string "name"
-    t.string "acronym"
+    t.string "work_role_code"
     t.text "description"
-    t.integer "nice_area_id"
+    t.integer "nice_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "munge"

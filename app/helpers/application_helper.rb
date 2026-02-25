@@ -17,10 +17,6 @@ module ApplicationHelper
       render("shared/nice_skills_table", skills: skills)
     end
   
-    def nice_abilities_table(abilities)
-      render("shared/nice_abilities_table", abilities: abilities)
-    end
-  
     def nice_tasks_table(tasks)
       render("shared/nice_tasks_table", tasks: tasks)
     end

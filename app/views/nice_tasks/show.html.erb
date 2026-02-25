@@ -1,10 +1,13 @@
-<%- view_title "NICE Task - #{@task.acronym}" %>
+<%- view_title "NICE Task - #{ @task.task_code }" %>
 
 <% content_for :main do %>
-<h1><%= @task.acronym %></h1>
+<h1><%= @task.task_code %></h1>
 <p class="lead"><%= @task.description %></p>
 
-<h2>Related NICE Work Roles <span class="badge badge-pill badge-secondary"><%= @task.nice_work_roles.count%></span></h2>
+<h2>Related NICE Work Roles <span class="badge rounded-pill text-bg-secondary"><%= @task.nice_work_roles.count%></span></h2>
+
+<div class="pb-5">
 <%= nice_work_roles_table(@task.nice_work_roles) %>
+</div>
 
 <% end %>

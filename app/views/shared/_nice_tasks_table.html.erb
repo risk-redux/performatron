@@ -9,10 +9,10 @@
   </thead>
   <tbody>
     <% tasks.each do |task| %>
-    <tr data-link="<%= nice_task_path(task.acronym) %>">
+    <tr data-link="<%= nice_task_path(task.task_code) %>">
       <th scope="row">
-        <%= link_to nice_task_path(task.acronym) do %>
-        <%= task.acronym %>
+        <%= link_to nice_task_path(task.task_code) do %>
+        <%= task.task_code %>
         <% end %>
       </th>
       <td><%= task.description %></td>

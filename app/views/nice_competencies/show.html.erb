@@ -1,0 +1,8 @@
+<%- view_title "NICE Competency | #{ @nice_competency.competency_code }" %>
+
+<% content_for :main do %>
+<h1><%= @nice_competency.competency_code %> <%= @nice_competency.name %></h1>
+<blockquote class="blockquote">
+  <p class="mb-0"><%= @nice_competency.description %></p>
+</blockquote>
+<% end %>

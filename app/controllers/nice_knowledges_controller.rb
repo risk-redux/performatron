@@ -11,14 +11,14 @@ class NiceKnowledgesController < ApplicationController
   end
 
   def show
-    @knowledge = NiceKnowledge.find_by(acronym: params[:acronym])
+    @knowledge = NiceKnowledge.find_by(knowledge_code: params[:knowledge_code])
 
     respond_to do |format|
       format.html {}
       format.json {
         render json: @knowledge.as_json(except: [:id, :created_at, :updated_at],
         include: [
-          nice_work_roles: { except: [:id, :nice_area_id, :description, :munge, :opm_code, :created_at, :updated_at] }
+          nice_work_roles: { except: [:id, :nice_category_id, :description, :munge, :opm_code, :created_at, :updated_at] }
         ])
       }
     end

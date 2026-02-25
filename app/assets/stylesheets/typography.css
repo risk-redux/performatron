@@ -90,3 +90,8 @@ abbr, abbr[title] {
 .text-tiffany {
   color: #0abab5;
 }
+
+.opm-code {
+  font-size: 0.50em;
+  vertical-align: middle;
+}

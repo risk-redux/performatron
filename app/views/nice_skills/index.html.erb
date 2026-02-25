@@ -1,8 +1,10 @@
 <%- view_title "NICE Skills" %>
 
 <% content_for :main do %>
-<h1>NICE Skills <span class="badge badge-pill badge-secondary"><%= @skills.count%></span></h1>
+<h1>NICE Skills <span class="badge rounded-pill text-bg-secondary"><%= @skills.count%></span></h1>
 
+<div class="pb-5">
 <%= nice_skills_table(@skills) %>
+</div>
 
 <% end %>

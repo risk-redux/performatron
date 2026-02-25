@@ -1,0 +1,16 @@
+<div class="row">
+    <% competencies.each do |competency| %>
+    <div class="col-sm-2">
+      <div class="card">
+        <%= link_to(nice_competency_path(competency.competency_code), {class: ""} ) do %>
+        <div class="card-body">
+          <h3 class="display-3 card-title text-center">
+            <abbr title="<%= competency.name %>"><%= competency.competency_code %></abbr>
+          </h3>
+          <p class="card-text small text-muted hidden-sm"><em><%= competency.name %></em></p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>

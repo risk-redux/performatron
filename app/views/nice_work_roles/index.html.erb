@@ -1,17 +1,19 @@
 <%- view_title "NICE Work Roles" %>
 
 <% content_for :main do %>
-<h1>NICE Work Roles <span class="badge badge-pill badge-secondary"><%= @nice_work_roles.count%></span></h1>
+<h1>NICE Work Roles <span class="badge rounded-pill text-bg-secondary"><%= @nice_work_roles.count%></span></h1>
 
-<figure>
+<!-- <figure>
   <blockquote class="blockquote">
-    <p><em>Work roles are the most detailed groupings of cybersecurity and related work which include a list of attributes required to perform that role in the form of knowledge, skills, and abilities (KSAs) and tasks performed in that role.</em></p>
+    <p><em></em></p>
     <figcaption class="blockquote-footer">
       <cite title="NIST SP 800-181">NIST SP 800-181</cite>
     </figcaption>
   </blockquote>
-</figure>
+</figure> -->
 
-<%= nice_work_roles_table(@nice_work_roles) %>
+<div class="pb-5">
+  <%= nice_work_roles_table(@nice_work_roles) %>
+</div>
 
 <% end %>

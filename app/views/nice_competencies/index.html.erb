@@ -1,7 +1,7 @@
-<%- view_title "NICE Categories" %>
+<%- view_title "NICE Competencies" %>
 
 <% content_for :main do %>
-<h1>NICE Categories <span class="badge rounded-pill text-bg-secondary"><%= @nice_categories.count%></span></h1>
+<h1>NICE Competencies <span class="badge rounded-pill text-bg-secondary"><%= @nice_competencies.count%></span></h1>
 
 <!-- <figure>
   <blockquote class="blockquote">
@@ -12,6 +12,8 @@
   </blockquote>
 </figure> -->
 
-<%= nice_categories_table(@nice_categories) %>
+<div class="pb-5">
+<%= nice_competencies_table(@nice_competencies) %>
+</div>
 
 <% end %>

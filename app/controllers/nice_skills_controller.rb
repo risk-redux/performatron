@@ -11,14 +11,14 @@ class NiceSkillsController < ApplicationController
   end
 
   def show
-    @skill = NiceSkill.find_by(acronym: params[:acronym])
+    @skill = NiceSkill.find_by(skill_code: params[:skill_code])
 
     respond_to do |format|
       format.html {}
       format.json {
         render json: @skill.as_json(except: [:id, :created_at, :updated_at],
         include: [
-          nice_work_roles: { except: [:id, :nice_area_id, :description, :munge, :opm_code, :created_at, :updated_at] }
+          nice_work_roles: { except: [:id, :nice_category_id, :description, :munge, :opm_code, :created_at, :updated_at] }
         ]) 
       }
     end

@@ -3,20 +3,18 @@
     <tr>
       <th scope="col">Code</th>
       <th scope="col">Name</th>
-      <th scope="col">Specialty Areas</th>
       <th scope="col">Work Roles</th>
     </tr>
   </thead>
   <tbody>
     <% categories.each do |category| %>
-    <tr data-link="<%= nice_category_path(category.acronym) %>">
+    <tr data-link="<%= nice_category_path(category.category_code) %>">
       <th scope="row">
-        <%= link_to nice_category_path(category.acronym) do %>
-        <%= category.acronym %>
+        <%= link_to nice_category_path(category.category_code) do %>
+        <%= category.category_code %>
         <% end %>
       </th>
       <td><%= category.name %></td>
-      <td><%= category.nice_areas.count %></td>
       <td><%= category.nice_work_roles.count %></td>
     </tr>
     <% end %>

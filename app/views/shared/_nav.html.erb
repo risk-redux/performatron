@@ -22,8 +22,8 @@
           <li class="nav-item <%= is_active?('nice_categories#index')%>">
             <%= link_to("Categories", nice_categories_path(), { class: "nav-link" }) %>
           </li>
-          <li class="nav-item <%= is_active?('nice_areas#index')%>">
-            <%= link_to("Specialty Areas", nice_areas_path(), { class: "nav-link" }) %>
+          <li class="nav-item <%= is_active?('nice_competencies#index')%>">
+            <%= link_to("Competencies", nice_competencies_path(), { class: "nav-link" }) %>
           </li>
           <li class="nav-item <%= is_active?('nice_work_roles#index')%>">
             <%= link_to("Work Roles", nice_work_roles_path(), { class: "nav-link" }) %>
@@ -34,9 +34,6 @@
           </li>
           <li class="nav-item <%= is_active?('nice_skills#index')%>">
             <em><%= link_to("Skills", nice_skills_path(), { class: "nav-link" }) %></em>
-          </li>
-          <li class="nav-item <%= is_active?('nice_abilities#index')%>">
-            <em><%= link_to("Abilities", nice_abilities_path(), { class: "nav-link" }) %></em>
           </li>
           <li class="nav-item <%= is_active?('nice_tasks#index')%>">
             <em><%= link_to("Tasks", nice_tasks_path(), { class: "nav-link" }) %></em>

@@ -1,5 +1,5 @@
-<% unless work_roles.nil? %>
-<table id="nice_work_roles_table" class="table table-hover table-sm collapse show">
+<% unless competencies.nil? %>
+<table id="nice_competencies_table" class="table table-hover table-sm collapse show">
   <thead>
     <tr>
       <th scope="col">Code</th>
@@ -10,23 +10,23 @@
     </tr>
   </thead>
   <tbody>
-    <% work_roles.each do |role| %>
-    <tr data-link="<%= nice_work_role_path(role.work_role_code) %>">
+    <% competencies.each do |competency| %>
+    <tr data-link="<%= nice_competency_path(competency.competency_code) %>">
       <th scope="row">
-        <%= link_to nice_work_role_path(role.work_role_code) do %>
-        <%= role.work_role_code %> [<%= role.opm_code %>]
+        <%= link_to nice_competency_path(competency.competency_code) do %>
+        <%= competency.competency_code %>
         <% end %>
       </th>
-      <td><%= role.name %></td>
-      <td><%= role.nice_task_mappings.count %></td>
-      <td><%= role.nice_knowledge_mappings.count %></td>
-      <td><%= role.nice_skill_mappings.count %></td>
+      <td><%= competency.name %></td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
     </tr>
     <% end %>
   </tbody>
 </table>
 <% else %>
-<table id="nice_work_roles_table" class="table table-hover table-sm collapse show">
+<table id="nice_competencies_table" class="table table-hover table-sm collapse show">
   <thead>
     <tr>
       <th scope="col">Code</th>

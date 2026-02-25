@@ -7,8 +7,6 @@ module NiceWorkRolesHelper
       ksat_data.each { |mapping| data.push(mapping.nice_knowledge) }
     when :skills
       ksat_data.each { |mapping| data.push(mapping.nice_skill) }
-    when :abilities
-      ksat_data.each { |mapping| data.push(mapping.nice_ability) }
     when :tasks
       ksat_data.each { |mapping| data.push(mapping.nice_task) }
     end
@@ -24,8 +22,6 @@ module NiceWorkRolesHelper
       ksat_data.each { |mapping| data.push(mapping.nice_knowledge) }
     when :skills
       ksat_data.each { |mapping| data.push(mapping.nice_skill) }
-    when :abilities
-      ksat_data.each { |mapping| data.push(mapping.nice_ability) }
     when :tasks
       ksat_data.each { |mapping| data.push(mapping.nice_task) }
     end

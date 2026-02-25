@@ -1,10 +1,13 @@
-<%- view_title "NICE Knowledge - #{@knowledge.acronym}" %>
+<%- view_title "NICE Knowledge - #{ @knowledge.knowledge_code }" %>
 
 <% content_for :main do %>
-<h1><%= @knowledge.acronym %></h1>
+<h1><%= @knowledge.knowledge_code %></h1>
 <p class="lead"><%= @knowledge.description %></p>
 
-<h2>Related NICE Work Roles <span class="badge badge-pill badge-secondary"><%= @knowledge.nice_work_roles.count%></span></h2>
+<h2>Related NICE Work Roles <span class="badge rounded-pill text-bg-secondary"><%= @knowledge.nice_work_roles.count%></span></h2>
+
+<div class="pb-5">
 <%= nice_work_roles_table(@knowledge.nice_work_roles) %>
+</div>
 
 <% end %>
