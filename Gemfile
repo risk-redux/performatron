@@ -52,7 +52,7 @@ gem "thruster", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri ]
+  gem "debug", platforms: %i[ mri windows ]
 
   # Use sqlite3 as the database for Active Record
   gem "sqlite3"
